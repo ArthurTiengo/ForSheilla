@@ -47,6 +47,8 @@ section .background video{
     padding:20px;
     box-shadow:1px 15px 20px rgba(0,0,0,.5);
     transform:rotateZ(-5deg);
+    touch-action: none;
+    cursor: grab;
 }
 
 .paper.image{
