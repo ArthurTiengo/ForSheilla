@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    touch-action:none;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Fundo */
+section{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+section .background{
+    width:100%;
+    height:100%;
+}
+
+section .background video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.paper{
+    position:absolute;
+    max-width:90vw;
+    background-image:url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+    background-size:500px;
+    padding:20px;
+    box-shadow:1px 15px 20px rgba(0,0,0,.5);
+    transform:rotateZ(-5deg);
+}
+
+.paper.image{
+    padding:10px;
+}
+
+.paper.image img,
+.paper.image video{
+    width:100%;
+    height:auto;
+    max-width:400px;
+    border-radius:8px;
+}
+
+p{
+    font-family:'Zeyada', cursive;
+    font-size:50px;
+    color:rgb(0,0,100);
+    opacity:.75;
+    user-select:none;
+    text-align:center;
+}
+
+/* CELULARES */
+@media (max-width:768px){
+
+    .paper{
+        max-width:95vw;
+        padding:15px;
+    }
+
+    p{
+        font-size:32px;
+    }
+
+    .paper.image p{
+        font-size:26px;
+    }
+
+    .paper.image img,
+    .paper.image video{
+        max-width:100%;
+    }
+}
+
+/* CELULARES PEQUENOS */
+@media (max-width:480px){
+
+    p{
+        font-size:26px;
+    }
+
+    .paper.image p{
+        font-size:22px;
+    }
+
+    .paper{
+        padding:10px;
+    }
+}
