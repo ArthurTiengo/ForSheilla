@@ -45,3 +45,54 @@ document.querySelectorAll(".paper").forEach((paper) => {
   });
 
 });
+
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+let playing = false;
+
+music.addEventListener("loadedmetadata", () => {
+    music.currentTime = 19; // 90 segundos = 1min30s
+    music.volume = 0.4; // 50%
+});
+
+
+btn.addEventListener("click", () => {
+  if (!playing) {
+    music.play();
+    btn.innerHTML = "🔇 Parar Música";
+  } else {
+    music.pause();
+    btn.innerHTML = "🩵 Tocar Música";
+  }
+
+  playing = !playing;
+});
+
+document.addEventListener("mousemove", (e) => {
+  const heart = document.createElement("div");
+
+  heart.innerHTML = "❤️";
+  heart.style.position = "fixed";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+  heart.style.pointerEvents = "none";
+  heart.style.fontSize = "20px";
+  heart.style.zIndex = "9999";
+
+  document.body.appendChild(heart);
+
+  let pos = 0;
+
+  const anim = setInterval(() => {
+    pos++;
+
+    heart.style.transform = `translateY(-${pos}px)`;
+    heart.style.opacity = 1 - pos / 50;
+
+    if (pos > 50) {
+      clearInterval(anim);
+      heart.remove();
+    }
+  }, 10);
+});
